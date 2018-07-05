@@ -22,6 +22,21 @@ a:hover {
   text-decoration: underline;
 }
 
+.first {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.second {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.third {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+
 .contact-link:hover {
   text-decoration: none;
 }
@@ -53,9 +68,15 @@ a:hover {
 }
 
 .mainscreen {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 400px;
 }
 
@@ -151,7 +172,7 @@ a:hover {
 }
 
 .bottom {
-text-align: center;
+  text-align: center;
 }
 
 .background {
@@ -186,7 +207,7 @@ text-align: center;
   height: 20vh;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: 50% 40%;
   margin-bottom: 10px;
 }
 
