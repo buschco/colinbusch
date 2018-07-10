@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <title>about@colinbusch.de</title>
   </head>
   <body>
@@ -15,18 +16,7 @@
     </div>
     <div class="content">
       <div class="notsobigtext middle-text">
-        <div class="dialog left-text animated fadeInLeft">
-          I started coding with the age of 15 with <i>PHP</i>...
-        </div>
-        <div class="dialog right-text animated fadeInRight first ">
-          ...I searched for a new adventure and started
-          coding with <i>Javacript</i>...
-        </div>
-        <div class="dialog left-text animated fadeInLeft second ">
-          ...first server sided technologies like <i>Node.js</i> and <i>expressjs</i>...
-        </div>
-        <div class="dialog right-text animated fadeInRight third">
-          ...later front-end frameworks, like Angular and Aurelia and of course <i>reactJS</i>.
+        <div id="bubbleChart">
         </div>
       </div>
       <div class="notsobigtext middle-text animated fadeIn">
@@ -63,6 +53,7 @@
         </span>
     </div>
   </body>
+  <script src="bubbles.js"></script>
   <script>var images = ['snack', 'cheesy', 'nosleep', 'avocado','superjuice'];
   document.getElementById("svg").onclick = next
   var cur = document.getElementById(images[Math.floor(Math.random() * 5)]);
