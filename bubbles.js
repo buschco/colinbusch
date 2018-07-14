@@ -85,6 +85,11 @@ var data = [
     "size": 0.8
   },
   {
+    "name": "electron",
+    "cat": "Tech",
+    "size": 0.4
+  },
+  {
     "name": "npm",
     "cat": "Tool",
     "size": 0.8
