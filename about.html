@@ -30,8 +30,12 @@
         <object id="cheesy" class="svg" data="assets/svg/cheesy.svg" type="image/svg+xml"></object>
         <object id="snack" class="svg" data="assets/svg/latenightsnack.svg" type="image/svg+xml"></object>
         <object id="nosleep" class="svg" data="assets/svg/nosleep.svg" type="image/svg+xml"></object>
-        <object id="avocado" class="svg" data="assets/svg/avocado.svg" type="image/svg+xml"></object>
+        <!-- <object id="avocado" class="svg" data="assets/svg/avocado.svg" type="image/svg+xml"></object> -->
         <object id="superjuice" class="svg" data="assets/svg/superjuice.svg" type="image/svg+xml"></object>
+        <object id="lovingavo" class="svg" data="assets/svg/lovingavo.svg" type="image/svg+xml"></object>
+        <object id="censavo" class="svg" data="assets/svg/censavo.svg" type="image/svg+xml"></object>
+        <object id="comfavo" class="svg" data="assets/svg/comfavo.svg" type="image/svg+xml"></object>
+
       </div>
     </div>
     <div class="bottom">
@@ -54,13 +58,13 @@
     </div>
   </body>
   <script src="bubbles.js"></script>
-  <script>var images = ['snack', 'cheesy', 'nosleep', 'avocado','superjuice'];
+  <script>var images = ['snack', 'cheesy', 'nosleep','superjuice','lovingavo','censavo','comfavo'];
   document.getElementById("svg").onclick = next
-  var cur = document.getElementById(images[Math.floor(Math.random() * 5)]);
+  var cur = document.getElementById(images[Math.floor(Math.random() * images.length)]);
   cur.style.display = "block";
   function next() {
       cur.style.display = "none"
-      cur= document.getElementById(images[Math.floor(Math.random() * 5)]);
+      cur= document.getElementById(images[Math.floor(Math.random() * images.length)]);
       cur.style.display = "block";
   }
 </script>
