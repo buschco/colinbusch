@@ -256,8 +256,7 @@ a:hover {
   }
 }
 
-@keyframes heartbeat
-{
+@keyframes heartbeat {
   0% {
     transform: scale( .82);
   }
@@ -272,11 +271,9 @@ a:hover {
 }
 
 #heart {
+  -webkit-animation:heartbeat 1s infinite;
+  -moz-animation:heartbeat 1s infinite;
   animation: heartbeat 1s infinite;
-}
-
-#heart:hover {
-  animation: heartbeat 0.5s infinite;
 }
 
 @media only screen and (min-width: 450px) {
