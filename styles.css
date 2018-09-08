@@ -58,10 +58,11 @@ a:hover {
 
 .header {
   background-color: #59656F;
-  height: 50px;
+  height: 53px;
   text-align: center;
   line-height: 60px;
   font-size: 25pt;
+  box-shadow: 0px 4px 6px #BFCDE0;
 }
 
 .content {
@@ -221,6 +222,26 @@ a:hover {
   font-size: 20pt;
 }
 
+.btn {
+  background-color: #59656F;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  color: #BFCDE0;
+  box-shadow: 3px 3px 6px black;
+}
+
+.btn:hover {
+  color: #3B3355;
+}
+
+.btn:active {
+  box-shadow: 3px 3px 6px #34D1BF;
+}
+
 @media only screen and (min-width: 700px) {
   .svg-viewer {
     margin: 50%;
@@ -233,6 +254,29 @@ a:hover {
   .dialog {
     margin-bottom: 20px;
   }
+}
+
+@keyframes heartbeat
+{
+  0% {
+    transform: scale( .82);
+  }
+
+  50% {
+    transform: scale( 1);
+  }
+
+  100% {
+    transform: scale( .82);
+  }
+}
+
+#heart {
+  animation: heartbeat 1s infinite;
+}
+
+#heart:hover {
+  animation: heartbeat 0.5s infinite;
 }
 
 @media only screen and (min-width: 450px) {
