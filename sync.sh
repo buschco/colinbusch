@@ -13,4 +13,4 @@ for i in "${FILES[@]}"; do
 done
 #echo "${CMDS[@]}"
 
-echo "${CMDS[@]}" | xargs aws s3 sync . s3://colinbusch.de --dryrun --delete --exclude "*"
+echo "${CMDS[@]}" | xargs aws s3 sync . s3://colinbusch.de --delete --exclude "*"
