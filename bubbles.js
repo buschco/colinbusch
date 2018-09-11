@@ -146,7 +146,7 @@ var labels = svg
   .attr("alignment-baseline", "central")
   .attr("text-anchor", "middle")
   .attr("font-size", function(d) {
-    return d.size*s/2
+    return d.size*s/3
   })
 	.text(function(d) {
     return d.name

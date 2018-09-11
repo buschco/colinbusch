@@ -4,7 +4,7 @@
 body {
   background-color: #FEFCFD;
   margin: 0px;
-  font-family: LeagueGothic !important;
+  font-family:  'Josefin Sans', sans-serif !important;
   color: #000505;
 }
 
@@ -61,7 +61,7 @@ a:hover {
   height: 53px;
   text-align: center;
   line-height: 60px;
-  font-size: 25pt;
+  font-size: 20pt;
   box-shadow: 0px 4px 6px #BFCDE0;
 }
 
