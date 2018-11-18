@@ -1,0 +1,32 @@
+Projects
+
+Planned
+Testkauf helper app (react-native)
+Smart home espresso machine
+Internet Controlled Clock
+
+Workin on it
+4inarow app
+
+
+Finished
+encryptor
+esp8226 lightswitch (medium post)
+website you are on right now (react)
+[
+	{
+		id: '68cb6a58-e76a-470a-b450-19b110254740',
+		title: 'Testkauf helper app',
+		description: 'My "mini-job" I have to drive to different locations.
+			I receive a PDF with the locations I have to visit. The app should extract the list of the locations and then have a easy possibility t open the navigation app and display which location was visited and when.'
+		type: 
+		media: {
+			type: image,
+			url: 'https://via.placeholder.com/640x1136.png'
+		}
+	},
+	{
+		id: 'ab257e51-d596-4367-bd87-b756893e63fe',
+		title: 'Smart Home'
+	}
+]

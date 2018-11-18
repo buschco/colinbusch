@@ -1,0 +1,31 @@
+{
+  "name": "colinbusch-react",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3001/",
+  "dependencies": {
+    "bricks.js": "^1.8.0",
+    "d3": "^5.7.0",
+    "eslint-plugin-react-hooks": "0.0.0",
+    "react": "^16.7.0-alpha.0",
+    "react-content-loader": "^3.2.0",
+    "react-dom": "^16.7.0-alpha.0",
+    "react-inlinesvg": "^0.8.2",
+    "react-router-component": "^0.39.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "react-youtube": "^7.8.0",
+    "typed.js": "^2.0.9"
+  },
+  "scripts": {
+    "start": "react-scripts start | node api/server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "express": "^4.16.4",
+    "express-subdomain": "^1.0.5"
+  }
+}
