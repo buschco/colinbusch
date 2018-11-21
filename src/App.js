@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
 import Index from './Routes/Index'
 import About from './Routes/About'
@@ -8,7 +8,7 @@ import Stuff from './Routes/Stuff'
 import Github from './Components/svg/Github'
 import Email from './Components/svg/Email'
 
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 class App extends Component {
 
@@ -37,20 +37,18 @@ class App extends Component {
               </span>
               <span className="contact">
                 <a className="contact-link" href="https://twitter.com/buschco98">
-                {/* style="width:20px" */}
                 <img style={{width: 20}} src="https://upload.wikimedia.org/wikipedia/de/9/9f/Twitter_bird_logo_2012.svg?download" alt="twitter"/>
               </a></span>
               <span className="contact">
-                {/* style="padding-bottom:5px" */}
-                <a className="contact-link"  href="mailto:colinbusch@icloud.com?subject=Feedback">
+                <a className="contact-link"  href="mailto:me@colinbusch.de?subject=Feedback">
                   <Email />
                 </a>
               </span>
           </div>
         </div>
       </Router>
-    );
+    )
   }
 }
 
-export default App;
+export default App

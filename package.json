@@ -9,6 +9,7 @@
     "eslint-plugin-react-hooks": "0.0.0",
     "react": "^16.7.0-alpha.0",
     "react-content-loader": "^3.2.0",
+    "react-countup": "^4.0.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-inlinesvg": "^0.8.2",
     "react-router-component": "^0.39.1",
