@@ -9,9 +9,10 @@ var labels = {}
 var sim = {}
 
 export default function Bubbles() {
-  const scale = useScreenSize()
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
+  const scale = useScreenSize()
+
   useEffect(async () => {
     const response = await fetch('knowledge.json')
     const data = await response.json()
@@ -25,7 +26,6 @@ export default function Bubbles() {
   useEffect(() => {
     if(loading===false){
       svg
-        .append('svg')
         .attr('height', 9*scale.s)
       labels
         .attr('font-size', d => {return d.size*scale.s / 3})
@@ -35,8 +35,11 @@ export default function Bubbles() {
         return d.size*scale.s+scale.s/55
       }).strength(1))
       sim.alpha(1).restart()
+      setTimeout(() => {
+        sim.stop()
+      }, 4000)
     }
-  },[scale])
+  },[loading,scale.s])
 
   function initSVG() {
     svg = d3.select('#bubbleChart')
@@ -105,6 +108,9 @@ export default function Bubbles() {
     if (!d3.event.active) sim.alphaTarget(0)
     d3.event.subject.fx = null
     d3.event.subject.fy = null
+    setTimeout(() => {
+      sim.stop()
+    }, 10000)
   }
 
   function initSimulation(){
@@ -123,12 +129,17 @@ export default function Bubbles() {
       return d.size*scale.s+1000
     }).strength(1))
     sim.nodes(data).on('tick', updateForce)
+    setTimeout(() => {
+      sim.stop()
+    }, 4000)
   }
 
   return (
     <div>{loading ? <Loader /> : null}</div>
   )
 }
+
+//Stop sim que
 
 function useScreenSize() {
   const calcScale = (w, h) => {
@@ -141,10 +152,11 @@ function useScreenSize() {
   useEffect(() => {
     const handleResize = () => {
       if(w===window.innerWidth) return
-      setScale(calcScale(w,h))
       setWidth(window.innerWidth)
       setHeight(window.innerHeight)
+      setScale(calcScale(window.innerWidth,window.innerHeight))
     }
+    handleResize()
     window.addEventListener('resize', handleResize)
     return () => {
       window.removeEventListener('resize', handleResize)
