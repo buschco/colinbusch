@@ -11,10 +11,14 @@ export default function About() {
   const [age, setAge] = useState(0)
   const [counting, setCounting] = useState(false)
 
-  useEffect(async () => {
+  const fetchData = async () => {
     const response = await fetch('information.json')
     const data = await response.json()
     setInformation(data[0].text)
+  }
+
+  useEffect(() => {
+    fetchData()
     setAge(getAge(birthday))
     setCounting(true)
   }, [])

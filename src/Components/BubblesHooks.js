@@ -13,10 +13,14 @@ export default function Bubbles() {
   const [data, setData] = useState(null)
   const scale = useScreenSize()
 
-  useEffect(async () => {
+  const fetchData = async () => {
     const response = await fetch('knowledge.json')
     const data = await response.json()
     setData(data)
+  }
+
+  useEffect(() => {
+    fetchData()
   }, [])
 
   useEffect(() => {

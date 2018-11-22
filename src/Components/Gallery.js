@@ -6,10 +6,15 @@ import Loader from './Loader'
 export default function Gallery() {
   const [active, setActive] = useState(0)
   const [data, setData] = useState(null)
-  useEffect(async () => {
+
+  const fetchData = async () => {
     const response = await fetch('gallery.json')
     const data = await response.json()
     setData(data)
+  }
+
+  useEffect(() => {
+    fetchData()
   }, [])
 
   return (
