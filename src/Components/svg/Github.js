@@ -3,8 +3,8 @@ import React from 'react'
 export default function Github() {
   return (
     <svg
+      className="contact-svg"
       height={20}
-      className="octicon octicon-mark-github"
       viewBox="0 0 16 16"
       width={20}
       aria-hidden="true"

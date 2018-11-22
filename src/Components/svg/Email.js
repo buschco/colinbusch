@@ -3,6 +3,7 @@ import React from 'react'
 export default function Email() {
   return (
     <svg
+      className="contact-svg"
       height={20}
       viewBox="0 0 433 433"
       fillRule="evenodd"

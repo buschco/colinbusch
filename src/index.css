@@ -87,11 +87,12 @@ a:hover {
 }
 
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.footer > *{
+  display: inline-block;
 }
 
 .textbyimage > *{
@@ -105,7 +106,7 @@ a:hover {
 }
 
 .clearfix:after {
-    clear: both;
+  clear: both;
 }
 
 .bigtext {
@@ -152,6 +153,26 @@ a:hover {
   background-color: #59656F;
   height: 18px;
   margin: 20px;
+}
+
+.chroma:hover {
+  background: rgb(255,50,50);
+  background: -moz-linear-gradient(left, rgba(255,50,50,1) 0%, rgba(255,255,50,1) 17%, rgba(0,255,0,1) 33%, rgba(0,255,255,1) 50%, rgba(0,255,255,1) 50%, rgba(0,0,255,1) 66%, rgba(255,0,255,1) 83%, rgba(255,0,0,1) 99%);
+  background: -webkit-linear-gradient(left, rgba(255,50,50,1) 0%,rgba(255,255,50,1) 17%,rgba(0,255,0,1) 33%,rgba(0,255,255,1) 50%,rgba(0,255,255,1) 50%,rgba(0,0,255,1) 66%,rgba(255,0,255,1) 83%,rgba(255,0,0,1) 99%);
+  background: linear-gradient(to right, rgba(255,50,50,1) 0%,rgba(255,255,50,1) 17%,rgba(0,255,0,1) 33%,rgba(0,255,255,1) 50%,rgba(0,255,255,1) 50%,rgba(0,0,255,1) 66%,rgba(255,0,255,1) 83%,rgba(255,0,0,1) 99%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#ff0000',GradientType=1 );
+  background-size: 200% auto;
+  background-repeat: repeat-x;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation: chroma 2s linear infinite;
+  -moz-animation: chroma 2s linear infinite;
+  animation: chroma 2s linear infinite;
+}
+
+.active:hover {
+  text-decoration: none;
+  position: relative;
 }
 
 .image {
@@ -258,6 +279,26 @@ a:hover {
   .dialog {
     margin-bottom: 20px;
   }
+  .active:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: rgb(255,50,50);
+    background: -moz-linear-gradient(left, rgba(255,50,50,1) 0%, rgba(255,255,50,1) 17%, rgba(0,255,0,1) 33%, rgba(0,255,255,1) 50%, rgba(0,255,255,1) 50%, rgba(0,0,255,1) 66%, rgba(255,0,255,1) 83%, rgba(255,0,0,1) 99%);
+    background: -webkit-linear-gradient(left, rgba(255,50,50,1) 0%,rgba(255,255,50,1) 17%,rgba(0,255,0,1) 33%,rgba(0,255,255,1) 50%,rgba(0,255,255,1) 50%,rgba(0,0,255,1) 66%,rgba(255,0,255,1) 83%,rgba(255,0,0,1) 99%);
+    background: linear-gradient(to right, rgba(255,50,50,1) 0%,rgba(255,255,50,1) 17%,rgba(0,255,0,1) 33%,rgba(0,255,255,1) 50%,rgba(0,255,255,1) 50%,rgba(0,0,255,1) 66%,rgba(255,0,255,1) 83%,rgba(255,0,0,1) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#ff0000',GradientType=1 );
+    background-size: 200% auto;
+    background-repeat: repeat-x;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation: chroma 2s linear infinite;
+    -moz-animation: chroma 2s linear infinite;
+    animation: chroma 2s linear infinite;
+  }
 }
 
 @keyframes heartbeat {
@@ -295,5 +336,14 @@ a:hover {
     font-size: 36pt;
     display: block;
     width: 201px;
+  }
+}
+
+@keyframes chroma {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 400% 0%;
   }
 }
