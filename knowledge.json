@@ -1,0 +1,97 @@
+[
+  {
+    "name": "PHP",
+    "cat": "Lang",
+    "size": 0.5
+  },
+  {
+    "name": "Java",
+    "cat": "Lang",
+    "size": 0.9
+  },
+  {
+    "name": "Javacript",
+    "cat": "Lang",
+    "size": 0.9
+  },
+  {
+    "name": "Node.js",
+    "cat": "Tech",
+    "size": 0.8
+  },
+  {
+    "name": "d3",
+    "cat": "Tech",
+    "size": 0.5
+  },
+  {
+    "name": "reactJS",
+    "cat": "Tech",
+    "size": 0.8
+  },
+  {
+    "name": "React Native",
+    "cat": "Tech",
+    "size": 0.8
+  },
+  {
+    "name": "HTML",
+    "cat": "Tech",
+    "size": 0.6
+  },
+  {
+    "name": "AWS",
+    "cat": "Tool",
+    "size": 0.5
+  },
+  {
+    "name": "expressjs",
+    "cat": "Tech",
+    "size": 0.8
+  },
+  {
+    "name": "Bootstrap",
+    "cat": "Tech",
+    "size": 0.6
+  },
+  {
+    "name": "C",
+    "cat": "Lang",
+    "size": 0.5
+  },
+  {
+    "name": "CSS",
+    "cat": "Tech",
+    "size": 0.6
+  },
+  {
+    "name": "git",
+    "cat": "Tool",
+    "size": 0.6
+  },
+  {
+    "name": "TeX",
+    "cat": "Tech",
+    "size": 0.7
+  },
+  {
+    "name": "Unix Shell",
+    "cat": "Tool",
+    "size": 0.7
+  },
+  {
+    "name": "SVG",
+    "cat": "Tech",
+    "size": 0.8
+  },
+  {
+    "name": "electron",
+    "cat": "Tech",
+    "size": 0.4
+  },
+  {
+    "name": "npm",
+    "cat": "Tool",
+    "size": 0.8
+  }
+]

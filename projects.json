@@ -1,0 +1,66 @@
+[
+	{
+		"name": "Testkauf Helper App",
+		"description": "My 'mini-job' I have to drive to different locations. \n I receive a PDF with the locations I have to visit. The app should extract the list of the locations and then have a easy possibility t open the navigation app and display which location was visited and when.",
+		"link": [],
+		"media": {
+			"type": "svg",
+			"url": "svg/tkapp.svg"
+		}
+	},
+	{
+		"name": "Smart Home Espresso Machine",
+		"description": "I want to connect my old espresso machine to my smart home, so I can turn it on and off remotely from my phone.",
+		"link": [],
+		"media": {
+			"type": "svg",
+			"url": "svg/espresso.svg"
+		}
+	},
+	{
+		"name": "Radio controlled clock",
+		"description": "Because I am missing any clock in my Apartment I want to build it myself. The idea is inspired by 'Cathode Clock' from presenttime.com",
+		"link": [],
+		"media": {
+			"type": "svg",
+			"url": "svg/kathodeclock.svg"
+		}
+	},
+	{
+		"name": "Four in a row",
+		"description": "A multiplayer four in a row game for iOS and Android. Why another one? Because any other app has a 6 by 7 field size so there is sometimes no winner.",
+		"technologies": [
+			{"side": "frontend", "libs": ["React-Native"]},
+			{"side": "backend", "libs": ["Express", "SocketIO", "MongoDB"]}
+		],
+		"link": [],
+		"media": {
+			"type": "svg",
+			"url": "svg/4inarow.svg"
+		}
+	},
+	{
+		"name": "The Encryptor",
+		"description": "A small electron app that encrypt and decrypt files that are dragged and dropped into it. Donwload it here: ",
+		"technologies": [
+			{"side": "frontend", "libs": ["electron"]}
+		],
+		"link": [],
+		"media": {
+			"type": "svg",
+			"url": "svg/encryptor.svg"
+		}
+	},
+	{
+		"name": "ESP8266 Lightswitch",
+		"description": "The esp-homekit-demo repository inspired me to upgrade all my lightwitches in my appartment.",
+		"technologies": [
+			{"side": "backend", "libs": ["esp-homekit-demo"]}
+		],
+		"link": [],
+		"media": {
+			"type": "image",
+			"url": "images/esp.JPG"
+		}
+	}
+]
