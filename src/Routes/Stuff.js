@@ -7,10 +7,14 @@ let instance = {}
 
 export default function Stuff() {
   const [projects, setProjects] = useState(null)
-  useEffect(async () => {
+  const fetchData = async () => {
     const response = await fetch('projects.json')
     const data = await response.json()
     setProjects(data)
+  }
+
+  useEffect(() => {
+    fetchData()
   }, [])
 
   useEffect(() => {

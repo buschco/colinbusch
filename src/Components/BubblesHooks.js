@@ -11,6 +11,7 @@ var sim = {}
 export default function Bubbles() {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
+  const [active, setActive] = useState(true)
   const scale = useScreenSize()
 
   const fetchData = async () => {
@@ -28,6 +29,16 @@ export default function Bubbles() {
   },[data])
 
   useEffect(() => {
+    var t = setTimeout(() => {
+      sim.stop()
+    },2000)
+    setActive(false)
+    return (
+      () => clearTimeout(t)
+    )
+  },[active])
+
+  useEffect(() => {
     if(loading===false){
       svg
         .attr('height', 9*scale.s)
@@ -39,9 +50,7 @@ export default function Bubbles() {
         return d.size*scale.s+scale.s/55
       }).strength(1))
       sim.alpha(1).restart()
-      setTimeout(() => {
-        sim.stop()
-      }, 4000)
+      setActive(true)
     }
   },[loading,scale.s])
 
@@ -112,9 +121,7 @@ export default function Bubbles() {
     if (!d3.event.active) sim.alphaTarget(0)
     d3.event.subject.fx = null
     d3.event.subject.fy = null
-    setTimeout(() => {
-      sim.stop()
-    }, 10000)
+    setActive(true)
   }
 
   function initSimulation(){
@@ -133,9 +140,7 @@ export default function Bubbles() {
       return d.size*scale.s+1000
     }).strength(1))
     sim.nodes(data).on('tick', updateForce)
-    setTimeout(() => {
-      sim.stop()
-    }, 4000)
+    setActive(true)
   }
 
   return (

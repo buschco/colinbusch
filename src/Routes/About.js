@@ -37,10 +37,6 @@ export default function About() {
     }
   },[counting])
 
-  // const hoverHandler = () => {
-  //
-  // }
-
   return (
     <div className="animated fadeIn">
       <div className="notsobigtext middle-text">
