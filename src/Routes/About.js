@@ -3,10 +3,12 @@ import Bubbles from '../Components/BubblesHooks'
 import Gallery from '../Components/Gallery'
 import { useState, useEffect } from 'react'
 import CountUp from 'react-countup'
+// import Counter from '../Components/Counter'
+import PropTypes from 'prop-types'
 
 const birthday = new Date(1998,1,21,13,36)
 
-export default function About() {
+export default function About(props) {
   const [information, setInformation] = useState('loading...')
   const [age, setAge] = useState(0)
   const [counting, setCounting] = useState(false)
@@ -42,7 +44,7 @@ export default function About() {
       <div className="notsobigtext middle-text">
         <div className="notsobigtext">I worked with:</div>
         <div id="bubbleChart" className="animated fadeIn">
-          <Bubbles />
+          <Bubbles theme={props.index} />
         </div>
       </div>
       <div className="notsobigtext middle-text animated fadeIn">
@@ -53,6 +55,7 @@ export default function About() {
           duration={2}
           onEnd={()=> {setCounting(false)}}
         /> : age }</span> seconds old and {information}
+          {/* <Counter start={0} end={100} delay={1000}/> */}
       </div>
       <div className="notsobigtext middle-text animated fadeIn">
         Apart from coding I like to create vector graphics
@@ -60,6 +63,12 @@ export default function About() {
       <Gallery />
     </div>
   )
+}
+
+
+About.propTypes = {
+  images: PropTypes.array,
+  index: PropTypes.number
 }
 
 const getAge = (b) => {

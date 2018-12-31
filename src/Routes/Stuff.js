@@ -38,10 +38,15 @@ export default function Stuff() {
   }
 
   return (
-    <div style={{height: '50vh', width: '200px'}} className="content animated fadeIn masonry">
-      {projects===null ? 'Loading...' : projects.map((project, i) =>{
-        return <Project onLoad={fixLayout} key={i} title={project.name} description={project.description} links={project.links} media={project.media} />
-      })}
+    <div>
+      <div className="notsobigtext middle-text animated fadeIn">
+        This area is currently under heavy work. In the future it should showcase some projects I worked on or I will work on.
+      </div>
+      <div style={{height: '50vh', width: '200px'}} className="content animated fadeIn masonry">
+        {projects===null ? 'Loading...' : projects.map((project, i) =>{
+          return <Project onLoad={fixLayout} key={i} title={project.name} description={project.description} links={project.links} media={project.media} />
+        })}
+      </div>
     </div>
   )
 }

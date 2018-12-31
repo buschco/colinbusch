@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import styles from './Colors'
 
 import Index from './Routes/Index'
 import About from './Routes/About'
@@ -13,20 +14,41 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 class App extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: null,
+      index: 0
+    }
+  }
+
+
+  componentDidMount() {
+    fetch('images.json')
+    .then(res => res.json())
+    .then(data => {
+      var index = Math.floor(Math.random() * data.length)
+      this.setState({
+        data: data,
+        index: index
+      })
+    })
+  }
+
   render() {
     return (
       <Router>
         <div className="App">
-          <div className="header">
-            <NavLink exact activeClassName="active" className="nav-link" to="/">index</NavLink>
-            <NavLink activeClassName="active" className="nav-link" to="/about">about</NavLink>
-            <NavLink activeClassName="active" className="nav-link" to="/stuff">stuff</NavLink>
+          <div className="header" style={styles(this.state.index).header}>
+            <NavLink exact activeClassName="active" className="nav-link" activeStyle={styles(this.state.index).active} style={styles(this.state.index).a} to="/">index</NavLink>
+            <NavLink activeClassName="active" className="nav-link" activeStyle={styles(this.state.index).active} style={styles(this.state.index).a} to="/about">about</NavLink>
+            <NavLink activeClassName="active" className="nav-link" activeStyle={styles(this.state.index).active} style={styles(this.state.index).a} to="/stuff">stuff</NavLink>
           </div>
-          <Route exact path="/" component={Index} />
-          <Route path="/about" component={About} />
+          <Route exact path="/" render={() => <Index index={this.state.index} images={this.state.data} />} />
+          <Route path="/about" render={() => <About index={this.state.index} images={this.state.data} />} />
           <Route path="/stuff" component={Stuff} />
           <div className="bottom">
-            <div className="spacer-small chroma"></div>
+            <div style={styles(this.state.index).spacerSmall} className="spacer-small chroma"></div>
             <div className="notsobigtext middle-text">
               I am looking forward to hearing from you
             </div>

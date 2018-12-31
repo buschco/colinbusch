@@ -2,13 +2,15 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import * as d3 from 'd3'
 import Loader from './Loader'
+import PropTypes from 'prop-types'
+import styles from '../Colors'
 
 var svg = {}
 var bubbles = {}
 var labels = {}
 var sim = {}
 
-export default function Bubbles() {
+export default function Bubbles(props) {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
   const [active, setActive] = useState(true)
@@ -76,9 +78,9 @@ export default function Bubbles() {
       .attr('class', 'bubble')
       .attr('r', d => {return d.size*scale.s})
       .attr('fill', d => {
-        if(d.cat==='Lang') return '#3454D1'
-        if(d.cat==='Tech') return '#34D1BF'
-        if(d.cat==='Tool') return '#AEADF0'
+        if(d.cat==='Lang') return styles(props.theme).lang
+        if(d.cat==='Tech') return styles(props.theme).tech
+        if(d.cat==='Tool') return styles(props.theme).tool
         else return 'red'
       })
       .call(d3.drag()
@@ -148,6 +150,8 @@ export default function Bubbles() {
   )
 }
 
+
+
 //Stop sim que
 
 function useScreenSize() {
@@ -172,4 +176,8 @@ function useScreenSize() {
     }
   })
   return {w: w, h: h, s: s}
+}
+
+Bubbles.propTypes = {
+  theme: PropTypes.number,
 }
