@@ -9,7 +9,8 @@ import PropTypes from 'prop-types'
 const birthday = new Date(1998,1,21,13,36)
 
 export default function About(props) {
-  const [information, setInformation] = useState('loading...')
+  const [information, setInformation] = useState('loading..')
+  const [link, setLink] = useState('.')
   const [age, setAge] = useState(0)
   const [counting, setCounting] = useState(false)
 
@@ -17,6 +18,7 @@ export default function About(props) {
     const response = await fetch('information.json')
     const data = await response.json()
     setInformation(data[0].text)
+    setLink(data[0].link)
   }
 
   useEffect(() => {
@@ -54,8 +56,8 @@ export default function About(props) {
           delay={1}
           duration={2}
           onEnd={()=> {setCounting(false)}}
-        /> : age }</span> seconds old and {information}
-          {/* <Counter start={0} end={100} delay={1000}/> */}
+        /> : age }</span> seconds old and
+        { information } <a href={link.url} > { link.name } </a>
       </div>
       <div className="notsobigtext middle-text animated fadeIn">
         Apart from coding I like to create vector graphics

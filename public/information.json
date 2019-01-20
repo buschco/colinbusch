@@ -1,6 +1,10 @@
 [
   {
     "name": "current",
-    "text": "studying Computer Science at the FAU Erlangen-Nürnberg."
+    "text": "working for dwins, the company behind ",
+    "link": {
+      "name":  "Finanzguru.",
+      "url": "https://finanzguru.de"
+    }
   }
 ]

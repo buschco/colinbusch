@@ -60,12 +60,9 @@ export default function style(index) {
     btn: {
       backgroundColor: colors[index].grey,
       color: colors[index].active
+    },
+    link: {
+      color: colors[index].active
     }
-    // .btn:hover {
-    //   color: #3B3355;
-    // }
-    // .btn:active {
-    //   box-shadow: 3px 3px 6px #34D1BF;
-    // }
   }
 }
