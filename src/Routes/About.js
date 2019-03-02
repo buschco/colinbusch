@@ -56,8 +56,8 @@ export default function About(props) {
           delay={1}
           duration={2}
           onEnd={()=> {setCounting(false)}}
-        /> : age }</span> seconds old and
-        { information } <a href={link.url} > { link.name } </a>
+        /> : age }</span> seconds old and 
+        { ` ${information}` } <a href={link.url} > { link.name } </a>
       </div>
       <div className="notsobigtext middle-text animated fadeIn">
         Apart from coding I like to create vector graphics

@@ -42,7 +42,7 @@ class App extends Component {
           <div className="header" style={styles(this.state.index).header}>
             <NavLink exact activeClassName="active" className="nav-link" activeStyle={styles(this.state.index).active} style={styles(this.state.index).a} to="/">index</NavLink>
             <NavLink activeClassName="active" className="nav-link" activeStyle={styles(this.state.index).active} style={styles(this.state.index).a} to="/about">about</NavLink>
-            <NavLink activeClassName="active" className="nav-link" activeStyle={styles(this.state.index).active} style={styles(this.state.index).a} to="/stuff">stuff</NavLink>
+            {/* <NavLink activeClassName="active" className="nav-link" activeStyle={styles(this.state.index).active} style={styles(this.state.index).a} to="/stuff">stuff</NavLink> */}
           </div>
           <Route exact path="/" render={() => <Index index={this.state.index} images={this.state.data} />} />
           <Route path="/about" render={() => <About index={this.state.index} images={this.state.data} />} />
