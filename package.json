@@ -25,7 +25,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "predeploy": "npm run build",
-    "deploy": "aws s3 sync build/ s3://bucket-name --profile private"
+    "deploy": "aws s3 sync build/ s3://colinbusch.de --profile private"
   },
   "devDependencies": {
     "express": "^4.16.4",
