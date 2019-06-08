@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Typed from 'typed.js'
+import Typed from 'typed.js';
+import PropTypes from 'prop-types';
 
 class Typer extends Component {
   componentDidMount() {
     const { strings } = this.props;
     const options = {
-    	strings: strings,
+      strings,
       typeSpeed: 80,
       startDelay: 20,
       cursorChar: '|',
@@ -20,10 +21,20 @@ class Typer extends Component {
   render() {
     return (
       <span
-        ref={(el) => { this.el = el; }}
+        ref={el => {
+          this.el = el;
+        }}
       />
     );
   }
 }
+
+Typer.defaultProps = {
+  strings: [''],
+};
+
+Typer.propTypes = {
+  strings: PropTypes.arrayOf(PropTypes.string),
+};
 
 export default Typer;

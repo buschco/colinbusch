@@ -1,45 +1,45 @@
-import React from 'react'
-import Bubbles from '../Components/BubblesHooks'
-import Gallery from '../Components/Gallery'
-import { useState, useEffect } from 'react'
-import CountUp from 'react-countup'
-// import Counter from '../Components/Counter'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react';
+import CountUp from 'react-countup';
+import PropTypes from 'prop-types';
+import Bubbles from '../Components/BubblesHooks';
+import Gallery from '../Components/Gallery';
 
-const birthday = new Date(1998,1,21,13,36)
+const birthday = new Date(1998, 1, 21, 13, 36);
 
 export default function About(props) {
-  const [information, setInformation] = useState('loading..')
-  const [link, setLink] = useState('.')
-  const [age, setAge] = useState(0)
-  const [counting, setCounting] = useState(false)
+  const [information, setInformation] = useState('loading..');
+  const [link, setLink] = useState('.');
+  const [age, setAge] = useState(0);
+  const [counting, setCounting] = useState(false);
 
   const fetchData = async () => {
-    const response = await fetch('information.json')
-    const data = await response.json()
-    setInformation(data[0].text)
-    setLink(data[0].link)
-  }
+    const response = await fetch('information.json');
+    const data = await response.json();
+    setInformation(data[0].text);
+    setLink(data[0].link);
+  };
 
   useEffect(() => {
-    fetchData()
-    setAge(getAge(birthday))
-    setCounting(true)
-  }, [])
+    fetchData();
+    setAge(getAge(birthday));
+    setCounting(true);
+  }, []);
 
   useEffect(() => {
-    document.title = 'about ✖ colinbusch.de'
-  })
+    document.title = 'about ✖ colinbusch.de';
+  });
 
   useEffect(() => {
-    if (counting===true) return
-    let interval = setInterval(() => {
-      setAge(getAge(birthday))
-    }, 100)
-    return () => {
-      clearInterval(interval)
+    if (counting === true) {
+      return () => {};
     }
-  },[counting])
+    const interval = setInterval(() => {
+      setAge(getAge(birthday));
+    }, 100);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [counting]);
 
   return (
     <div className="animated fadeIn">
@@ -50,31 +50,43 @@ export default function About(props) {
         </div>
       </div>
       <div className="notsobigtext middle-text animated fadeIn">
-        Currently I am <span> {counting===true ? <CountUp
-          start={0}
-          end={age+4}
-          delay={1}
-          duration={2}
-          onEnd={()=> {setCounting(false)}}
-        /> : age }</span> seconds old and 
-        { ` ${information}` } <a href={link.url} > { link.name } </a>
+        Currently I am{' '}
+        <span>
+          {counting === true ? (
+            <CountUp
+              start={0}
+              end={age + 4}
+              delay={1}
+              duration={2}
+              onEnd={() => {
+                setCounting(false);
+              }}
+            />
+          ) : (
+            age
+          )}
+        </span>{' '}
+        seconds old and
+        {` ${information}`} <a href={link.url}> {link.name} </a>
       </div>
       <div className="notsobigtext middle-text animated fadeIn">
         Apart from coding I like to create vector graphics
       </div>
       <Gallery />
     </div>
-  )
+  );
 }
 
+About.defaultProps = {
+  index: 0,
+};
 
 About.propTypes = {
-  images: PropTypes.array,
-  index: PropTypes.number
-}
+  index: PropTypes.number,
+};
 
-const getAge = (b) => {
-  var diff = Date.now() - b.getTime()
-  var difDate = new Date(diff) // miliseconds from epoch
-  return Math.abs(Math.floor(difDate.getTime()/1000))
-}
+const getAge = b => {
+  const diff = Date.now() - b.getTime();
+  const difDate = new Date(diff); // milliseconds from epoch
+  return Math.abs(Math.floor(difDate.getTime() / 1000));
+};
