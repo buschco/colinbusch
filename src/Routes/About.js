@@ -74,7 +74,7 @@ About.propTypes = {
 }
 
 const getAge = (b) => {
-  var dif = Date.now() - b.getTime()
-  var difDate = new Date(dif) // miliseconds from epoch
+  var diff = Date.now() - b.getTime()
+  var difDate = new Date(diff) // miliseconds from epoch
   return Math.abs(Math.floor(difDate.getTime()/1000))
 }
