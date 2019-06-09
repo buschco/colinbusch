@@ -1,0 +1,94 @@
+version: 2.1
+jobs:
+  validate-js:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: Validate JS
+          command: yarn lint
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: Update yarn
+          command: 'sudo npm upgrade --global yarn'
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/src.cache/yarn
+      - run:
+          name: React Build
+          command: 'yarn build'
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - build
+            - package.json
+  deploy-js-dev:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10
+    steps:
+        - attach_workspace:
+            at: ~/repo
+        - run:
+            name: install aws cli
+            command: sudo apt-get -y -qq install awscli
+        - run:
+            name: sync to dev
+            command: aws s3 sync build/ s3://devcolin.busch.dev --region eu-central-1
+  deploy-js-prod:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10
+    steps:
+        - attach_workspace:
+            at: ~/repo
+        - run:
+            name: install aws cli
+            command: sudo apt-get -y -qq install awscli
+        - run:
+            name: sync to prod
+            command: aws s3 sync build/ s3://colin.busch.dev --region eu-central-1
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - validate-js:
+          filters: 
+            branches:
+              only:
+                - dev
+                - master
+      - build:
+          requires:
+            - validate-js
+      - deploy-js-dev:
+          requires:
+            - build
+      - hold:
+          filters: 
+            branches:
+              only:
+                - master
+          type: approval
+          requires: 
+            - check-xml
+            - deploy-js-dev
+      - deploy-js-prod:
+          requires:
+            - hold
