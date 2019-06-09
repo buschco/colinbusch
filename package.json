@@ -24,6 +24,11 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/*.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -35,6 +40,8 @@
     "eslint-plugin-react-hooks": "1.6.0",
     "express": "^4.16.4",
     "express-subdomain": "^1.0.5",
+    "husky": ">=1",
+    "lint-staged": ">=8",
     "prettier": "^1.18.2"
   },
   "browserslist": {
@@ -47,6 +54,12 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
     ]
   }
 }
