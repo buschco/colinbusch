@@ -87,7 +87,6 @@ workflows:
                 - master
           type: approval
           requires: 
-            - check-xml
             - deploy-js-dev
       - deploy-js-prod:
           requires:
