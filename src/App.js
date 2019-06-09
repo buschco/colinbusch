@@ -73,9 +73,9 @@ class App extends Component {
             <div
               style={styles(this.state.index).spacerSmall}
               className="spacer-small chroma"
-            ></div>
+            />
             <div className="notsobigtext middle-text">
-              I am looking forward to hearing from you
+              <p>I am looking forward to hearing from you</p>
             </div>
             <div className="footer">
               <span className="contact">
