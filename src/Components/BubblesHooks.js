@@ -21,47 +21,7 @@ export default function Bubbles(props) {
     setData(fetchedData);
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (data !== null) {
-      initSVG();
-    }
-  }, [data]);
-
-  useEffect(() => {
-    const t = setTimeout(() => {
-      sim.stop();
-    }, 2000);
-    setActive(false);
-    return () => clearTimeout(t);
-  }, [active]);
-
-  useEffect(() => {
-    if (loading === false) {
-      svg.attr('height', 9 * scale.s);
-      labels.attr('font-size', d => {
-        return (d.size * scale.s) / 3;
-      });
-      bubbles.attr('r', d => {
-        return d.size * scale.s;
-      });
-      sim.force(
-        'collide',
-        d3
-          .forceCollide(d => {
-            return d.size * scale.s + scale.s / 55;
-          })
-          .strength(1)
-      );
-      sim.alpha(1).restart();
-      setActive(true);
-    }
-  }, [loading, scale.s]);
-
-  function initSVG() {
+  const initSVG = () => {
     svg = d3
       .select('#bubbleChart')
       .append('div')
@@ -76,9 +36,9 @@ export default function Bubbles(props) {
     initBubbles();
     initSimulation();
     setLoading(false);
-  }
+  };
 
-  function initBubbles() {
+  const initBubbles = () => {
     bubbles = svg
       .selectAll('.bubble')
       .data(data)
@@ -127,31 +87,31 @@ export default function Bubbles(props) {
           .on('drag', dragged)
           .on('end', dragEnded)
       );
-  }
+  };
 
-  function dragStarted() {
+  const dragStarted = () => {
     if (!d3.event.active) {
       sim.alphaTarget(0.3).restart();
     }
     d3.event.subject.fx = d3.event.subject.x;
     d3.event.subject.fy = d3.event.subject.y;
-  }
+  };
 
-  function dragged() {
+  const dragged = () => {
     d3.event.subject.fx = d3.event.x;
     d3.event.subject.fy = d3.event.y;
-  }
+  };
 
-  function dragEnded() {
+  const dragEnded = () => {
     if (!d3.event.active) {
       sim.alphaTarget(0);
     }
     d3.event.subject.fx = null;
     d3.event.subject.fy = null;
     setActive(true);
-  }
+  };
 
-  function initSimulation() {
+  const initSimulation = () => {
     const updateForce = () => {
       labels
         .attr('x', d => {
@@ -181,14 +141,55 @@ export default function Bubbles(props) {
     );
     sim.nodes(data).on('tick', updateForce);
     setActive(true);
-  }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (data !== null) {
+      initSVG();
+    }
+    // eslint-disable-next-line
+  }, [data]);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      sim.stop();
+    }, 2000);
+    setActive(false);
+    return () => clearTimeout(t);
+  }, [active]);
+
+  useEffect(() => {
+    if (loading === false) {
+      svg.attr('height', 9 * scale.s);
+      labels.attr('font-size', d => {
+        return (d.size * scale.s) / 3;
+      });
+      bubbles.attr('r', d => {
+        return d.size * scale.s;
+      });
+      sim.force(
+        'collide',
+        d3
+          .forceCollide(d => {
+            return d.size * scale.s + scale.s / 55;
+          })
+          .strength(1)
+      );
+      sim.alpha(1).restart();
+      setActive(true);
+    }
+  }, [loading, scale.s]);
 
   return <div>{loading ? <Loader /> : null}</div>;
 }
 
 // Stop sim que
 
-function useScreenSize() {
+const useScreenSize = () => {
   const calcScale = (w, h) => {
     if (w > 800) {
       return (w / h) * 40;
@@ -216,7 +217,7 @@ function useScreenSize() {
     };
   });
   return { w, h, s };
-}
+};
 
 Bubbles.defaultProps = {
   theme: 0,
