@@ -7,23 +7,21 @@ export default function Index(props) {
     document.title = 'home ✖ colinbusch.de';
   });
 
+  const styles = getStyles(props.colors);
+
   return (
-    <div className="content animated fadeIn">
+    <div style={styles.content} className="animated fadeIn">
       <div className="textbyimage mainscreen">
-        <div className="bigtext right-text">
+        <div style={{ ...styles.bigtext, ...styles.rightText }}>
           <Typer strings={['Hello,^200 my name is Colin']} />
         </div>
-        <div className="image">
-          {props.images == null ? null : (
-            <img
-              className="welcome-img"
-              src={props.images[props.index].src}
-              alt="error"
-            />
+        <div style={styles.image}>
+          {props.image == null ? null : (
+            <img style={styles.welcomeImg} src={props.image.src} alt="error" />
           )}
         </div>
       </div>
-      <div style={{ marginTop: '10vh' }} className="notsobigtext middle-text">
+      <div style={styles.notsobigtext}>
         I
         <svg
           id="heart"
@@ -48,12 +46,44 @@ export default function Index(props) {
   );
 }
 
+const getStyles = themedColors => {
+  return {
+    content: {
+      margin: '30px',
+      marginTop: '10px',
+    },
+    notsobigtext: {
+      fontSize: '18pt',
+      marginTop: '10vh',
+      textAlign: 'center',
+    },
+    bigtext: {
+      margin: '5px',
+      fontSize: '23pt',
+      display: 'block',
+      width: '140px',
+    },
+    rightText: {
+      textAlign: 'right',
+    },
+    image: {
+      width: '100px',
+      height: '100px',
+      backgroundColor: 'orange',
+    },
+    welcomeImg: {
+      height: '100%',
+      width: '100%',
+    },
+  };
+};
+
 Index.defaultProps = {
-  images: null,
-  index: 0,
+  image: null,
+  colors: {},
 };
 
 Index.propTypes = {
-  images: PropTypes.arrayOf,
-  index: PropTypes.number,
+  image: PropTypes.objectOf,
+  colors: PropTypes.objectOf,
 };

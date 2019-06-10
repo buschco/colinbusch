@@ -34,7 +34,7 @@ const colors = [
   },
 ];
 
-export default function style(index) {
+function styles(index) {
   return {
     lang: colors[index].lang,
     tech: colors[index].tech,
@@ -70,3 +70,5 @@ export default function style(index) {
     },
   };
 }
+
+export { styles, colors };

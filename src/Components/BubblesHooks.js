@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import Loader from './Loader';
-import styles from '../Colors';
+import { styles } from '../Colors';
 
 let svg = {};
 let bubbles = {};
